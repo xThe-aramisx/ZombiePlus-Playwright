@@ -21,8 +21,7 @@ export class LandingPage {
         await this.page.getByPlaceholder('Informe seu nome').fill(name)
         await this.page.getByPlaceholder('Informe seu email').fill(email)
 
-        await this.page.getByTestId('modal')
-        .getByText('Quero entrar na fila!').click()
+        await this.page.getByTestId('modal').getByText('Quero entrar na fila!').click()
     }
 
     async alertHaveText(target) {

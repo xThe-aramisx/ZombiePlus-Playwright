@@ -1,53 +1,39 @@
-const { test, expect } = require('@playwright/test');
-
-const { LoginPage } = require('../pages/LoginPages');
-const {Toast} = require('../pages/Components')
-const { MoviesPage } = require('../pages/MoviesPage');
-
-let loginPage
-let toast
-let moviesPage
-
-test.beforeEach(async ({ page }) => {
-    loginPage = new LoginPage(page)
-    toast = new Toast(page)
-    moviesPage = new MoviesPage(page)
-})
+const { test, expect } = require('../support');
 
 test('deve logar como administrador', async ({ page }) => {
-    await loginPage.visit() 
-    await loginPage.submit('admin@zombieplus.com', 'pwd123')
-    await moviesPage.isLoggedIn()
+    await page.login.visit() 
+    await page.login.submit('admin@zombieplus.com', 'pwd123')
+    await page.movies.isLoggedIn()
 })
 test('nao deve logar com senha incorreta', async ({ page }) => {
-    await loginPage.visit() 
-    await loginPage.submit('admin@zombieplus.com', 'abc123')
+    await page.login.visit() 
+    await page.login.submit('admin@zombieplus.com', 'abc123')
 
    const message = "Oops!Ocorreu um erro ao tentar efetuar o login. Por favor, verifique suas credenciais e tente novamente."
-   await toast.containText(message)
+   await page.toast.containText(message)
 })
 test('nao deve logar com email é invalido', async ({ page }) => {
-    await loginPage.visit() 
-    await loginPage.submit('www.papito.com', 'abc123')
+    await page.login.visit() 
+    await page.login.submit('www.papito.com', 'abc123')
 
-    await loginPage.alertHaveText('Email incorreto')
+    await page.login.alertHaveText('Email incorreto')
 })
 test('nao deve logar com email nao preenchido', async ({ page }) => {
-    await loginPage.visit() 
-    await loginPage.submit('', 'abc123')
+    await page.login.visit() 
+    await page.login.submit('', 'abc123')
 
-    await loginPage.alertHaveText('Campo obrigatório')
+    await page.login.alertHaveText('Campo obrigatório')
 })
 
 test('nao deve logar com Senha nao preenchido', async ({ page }) => {
-    await loginPage.visit() 
-    await loginPage.submit('admin@zombieplus.com', '')
+    await page.login.visit() 
+    await page.login.submit('admin@zombieplus.com', '')
 
-    await loginPage.alertHaveText('Campo obrigatório')
+    await page.login.alertHaveText('Campo obrigatório')
 })
 test('nao deve logar com nenhum campo nao preenchido', async ({ page }) => {
-    await loginPage.visit() 
-    await loginPage.submit('', '')
+    await page.login.visit() 
+    await page.login.submit('', '')
 
-    await loginPage.alertHaveText(['Campo obrigatório', 'Campo obrigatório'])
+    await page.login.alertHaveText(['Campo obrigatório', 'Campo obrigatório'])
 })
