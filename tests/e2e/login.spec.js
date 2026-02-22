@@ -2,29 +2,29 @@ const { test, expect } = require('@playwright/test');
 
 const { LoginPage } = require('../pages/LoginPages');
 const {Toast} = require('../pages/Components')
-const { MoviePage } = require('../pages/MoviesPage');
+const { MoviesPage } = require('../pages/MoviesPage');
 
 let loginPage
 let toast
-let moviePage
+let moviesPage
 
 test.beforeEach(async ({ page }) => {
     loginPage = new LoginPage(page)
     toast = new Toast(page)
-    moviePage = new MoviePage(page)
+    moviesPage = new MoviesPage(page)
 })
 
 test('deve logar como administrador', async ({ page }) => {
     await loginPage.visit() 
     await loginPage.submit('admin@zombieplus.com', 'pwd123')
-    await moviePage.isLoggedIn()
+    await moviesPage.isLoggedIn()
 })
 test('nao deve logar com senha incorreta', async ({ page }) => {
     await loginPage.visit() 
     await loginPage.submit('admin@zombieplus.com', 'abc123')
 
    const message = "Oops!Ocorreu um erro ao tentar efetuar o login. Por favor, verifique suas credenciais e tente novamente."
-   await toast.haveText(message)
+   await toast.containText(message)
 })
 test('nao deve logar com email é invalido', async ({ page }) => {
     await loginPage.visit() 

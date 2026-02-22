@@ -1,0 +1,82 @@
+{
+  "create": {
+    "title": "A Noite dos Mortos Vivos",
+    "overview": "Um grupo de pessoas se refugia em uma casa de fazenda enquanto mortos-vivos começam a se levantar e atacar os vivos.",
+    "company": "Netflix",
+    "release_year": 1999,
+    "featured": false,
+    "cover": "images/a_noite_dos_mortos_vivos.png"
+  },
+  "o_despertar_dos_mortos": {
+    "title": "O Despertar dos Mortos",
+    "overview": "Sobreviventes de um apocalipse zumbi se escondem em um shopping center enquanto enfrentam hordas de mortos-vivos.",
+    "company": "united_film_distribution_company",
+    "release_year": 1978,
+    "featured": false,
+    "cover": "images/o_despertar_dos_mortos.png"
+  },
+  "o_dia_dos_mortos": {
+    "title": "O Dia dos Mortos",
+    "overview": "Cientistas e militares vivem em um bunker tentando entender e controlar os zumbis após o colapso da sociedade.",
+    "company": "united_film_distribution_company",
+    "release_year": 1985,
+    "featured": false,
+    "cover": "images/o_dia_dos_mortos.png"
+  },
+  "exterminio": {
+    "title": "Exterminio",
+    "overview": "Um homem acorda de um coma e descobre que um vírus devastou a cidade transformando pessoas em criaturas violentas.",
+    "company": "fox_searchlight_pictures",
+    "release_year": 2002,
+    "featured": false,
+    "cover": "images/exterminio.png"
+  },
+  "todo_mundo_quase_morto": {
+    "title": "Todo Mundo Quase Morto",
+    "overview": "Um vendedor comum tenta sobreviver a um apocalipse zumbi enquanto tenta reconquistar sua namorada.",
+    "company": "universal_pictures",
+    "release_year": 2004,
+    "featured": false,
+    "cover": "images/todo_mundo_quase_morto.png"
+  },
+  "madrugada_dos_mortos": {
+    "title": "Madrugada dos Mortos",
+    "overview": "Um grupo de sobreviventes se abriga em um shopping center após um surto zumbi se espalhar rapidamente.",
+    "company": "universal_pictures",
+    "release_year": 2004,
+    "featured": false,
+    "cover": "images/madrugada_dos_mortos.png"
+  },
+  "rec": {
+    "title": "Rec",
+    "overview": "Uma repórter e seu cinegrafista ficam presos em um prédio residencial onde um surto transforma moradores em criaturas violentas.",
+    "company": "filmax",
+    "release_year": 2007,
+    "featured": false,
+    "cover": "images/rec.png"
+  },
+  "zumbilandia": {
+    "title": "Zumbilandia",
+    "overview": "Quatro sobreviventes atravessam os Estados Unidos tentando encontrar um lugar seguro em meio ao apocalipse zumbi.",
+    "company": "columbia_pictures",
+    "release_year": 2009,
+    "featured": false,
+    "cover": "images/zumbilandia.png"
+  },
+  "guerra_mundial_z": {
+    "title": "Guerra Mundial Z",
+    "overview": "Um ex-investigador da ONU viaja pelo mundo tentando descobrir a origem de uma pandemia que transforma pessoas em zumbis rápidos e agressivos.",
+    "company": "paramount_pictures",
+    "release_year": 2013,
+    "featured": false,
+    "cover": "images/guerra_mundial_z.png"
+  },
+  "invasao_zumbi": {
+    "title": "Invasao Zumbi",
+    "overview": "Passageiros de um trem na Coreia do Sul lutam pela sobrevivência quando um surto zumbi se espalha rapidamente.",
+    "company": "next_entertainment_world",
+    "release_year": 2016,
+    "featured": false,
+    "cover": "images/invasao_zumbi.png"
+  }
+}
