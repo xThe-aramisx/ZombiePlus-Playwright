@@ -1,193 +1,207 @@
 Make for study and training purposes. Automation project for an application called Zombie Plus, used playwritgh
 
-🧟 ZombiePlus – Projeto de Testes Automatizados com Playwright
+# 🧟 ZombiePlus – Testes Automatizados com Playwright
 
-Este repositório contém a suíte de testes automatizados End-to-End (E2E) desenvolvida com Playwright para validar as principais funcionalidades da aplicação ZombiePlus.
+Repositório contendo a suíte de **testes automatizados E2E** desenvolvida com **Playwright** para validar os fluxos principais da aplicação **ZombiePlus**.
 
-⚠️ Importante:
-Este projeto contém apenas os testes automatizados.
-A aplicação ZombiePlus (API + Web) não está inclusa neste repositório.
+> ⚠️ **Importante**
+>
+> Este repositório contém **apenas os testes automatizados**.
+> A aplicação **ZombiePlus (API + Web)** não está inclusa no projeto.
 
-📌 Sobre o Projeto
+---
 
-O objetivo deste projeto é validar os fluxos críticos da aplicação ZombiePlus, garantindo qualidade, estabilidade e confiabilidade das seguintes funcionalidades:
+## 📌 Sobre o Projeto
 
-✅ Login de usuários
+Este projeto foi criado para validar os principais fluxos da aplicação **ZombiePlus**, garantindo qualidade e confiabilidade através de testes automatizados.
 
-🎬 Cadastro de filmes
+### Funcionalidades testadas
 
-📋 Cadastro de Leads
+* 🔐 Login de usuários
+* 🎬 Cadastro de filmes
+* 📋 Cadastro de Leads
+* ✅ Validações de campos obrigatórios
+* 🚫 Validações de erros
+* 🔄 Fluxos completos via interface web
 
-🔐 Validações de autenticação
+---
 
-📄 Interações com telas do sistema
+## 🏗️ Arquitetura do Ambiente
 
-A aplicação testada é composta por:
+Os testes dependem da aplicação **ZombiePlus**, que é composta por:
 
-API (não incluída no repositório)
+* API (não inclusa neste repositório)
+* Aplicação Web (não inclusa)
+* Banco de dados **PostgreSQL**
+* Interface Web do PostgreSQL
+* Banco e interface executando via **Docker**
 
-Frontend Web (não incluído no repositório)
+Fluxo:
 
-Banco de dados PostgreSQL
+```
+Playwright → Web ZombiePlus → API ZombiePlus → PostgreSQL (Docker)
+```
 
-Interface Web do PostgreSQL (ex: Admin UI)
+---
 
-Banco e interface configurados via Docker
+## 🧰 Tecnologias Utilizadas
 
-🧪 Tecnologias Utilizadas
+* [Playwright](https://playwright.dev/)
+* Node.js
+* Docker
+* PostgreSQL
 
-Playwright
+---
 
-Node.js
+## 📁 Estrutura do Projeto
 
-Docker
+```bash
+.
+├── tests/
+│   ├── login.spec.ts
+│   ├── filmes.spec.ts
+│   └── leads.spec.ts
+│
+├── pages/
+│   ├── login.page.ts
+│   ├── filmes.page.ts
+│   └── leads.page.ts
+│
+├── fixtures/
+│   ├── users.json
+│   ├── movies.json
+│   └── leads.json
+│
+├── playwright.config.ts
+├── package.json
+└── README.md
+```
 
-PostgreSQL
+Projeto estruturado utilizando **Page Object Model (POM)**.
 
-PostgreSQL Web Admin (ex: pgAdmin)
+---
 
-🏗️ Arquitetura do Ambiente de Teste
+## 🐳 Banco de Dados com Docker
 
-Este projeto de testes depende de:
+Exemplo básico para subir PostgreSQL:
 
-ZombiePlus API  →  Banco PostgreSQL (Docker)
-ZombiePlus Web  →  Consome API
-Playwright      →  Executa testes E2E na Web
-
-O banco de dados e sua interface web são executados via containers Docker.
-
-🐳 Subindo o Banco com Docker
-
-Certifique-se de que o Docker está instalado.
-
-Exemplo básico de subida do PostgreSQL via Docker:
-
-docker-compose up -d
-
-Ou, caso utilize apenas container direto:
-
+```bash
 docker run --name zombieplus-postgres \
   -e POSTGRES_USER=postgres \
   -e POSTGRES_PASSWORD=postgres \
   -e POSTGRES_DB=zombieplus \
   -p 5432:5432 \
   -d postgres
-🚀 Instalação do Projeto de Testes
-1️⃣ Instalar dependências
-npm install
-2️⃣ Instalar browsers do Playwright
-npx playwright install
-▶️ Executando os Testes
-Executar todos os testes
-npx playwright test
-Executar em modo headed (visual)
-npx playwright test --headed
-Executar com interface UI
-npx playwright test --ui
-🧪 Cenários Automatizados
-🔐 Login
+```
 
-Login com credenciais válidas
+Ou utilizando `docker-compose`:
 
-Login com credenciais inválidas
+```bash
+docker-compose up -d
+```
 
-Validação de mensagens de erro
+---
 
-Validação de redirecionamento
+## 🚀 Instalação
 
-🎬 Cadastro de Filmes
+### 1️⃣ Clonar o repositório
 
-Cadastro de novo filme
+```bash
+git clone https://github.com/seu-usuario/zombieplus-tests.git
+cd zombieplus-tests
+```
 
-Validação de campos obrigatórios
+## 📊 Relatórios
 
-Validação de persistência no sistema
+Após execução:
 
-Verificação de listagem após cadastro
-
-📋 Cadastro de Leads
-
-Cadastro de lead válido
-
-Validação de dados obrigatórios
-
-Fluxo completo via interface web
-
-📁 Estrutura Sugerida do Projeto
-tests/
- ├── login.spec.ts
- ├── filmes.spec.ts
- ├── leads.spec.ts
-
-pages/
- ├── login.page.ts
- ├── filmes.page.ts
- ├── leads.page.ts
-
-fixtures/
- ├── users.json
- ├── movies.json
- ├── leads.json
-⚙️ Configurações
-
-As configurações do Playwright estão definidas em:
-
-playwright.config.ts
-
-Você pode configurar:
-
-Base URL da aplicação
-
-Tempo de timeout
-
-Execução paralela
-
-Relatórios
-
-Screenshots e vídeos
-
-📊 Relatórios
-
-Após execução dos testes:
-
+```bash
 npx playwright show-report
+```
 
-O relatório exibirá:
+O relatório HTML exibirá:
 
-Testes executados
+* Status dos testes
+* Screenshots em caso de falha
+* Vídeos (se configurado)
+* Tempo de execução
 
-Status (Pass/Fail)
+---
 
-Tempo de execução
+## ⚙️ Configuração
 
-Screenshots de falhas
+As configurações principais estão no arquivo:
 
-Vídeos (se configurado)
+```
+playwright.config.ts
+```
 
-🎯 Objetivo do Projeto
+Nele você pode configurar:
 
-Este projeto foi criado com foco em:
+* `baseURL`
+* Timeout
+* Execução paralela
+* Captura de screenshots
+* Gravação de vídeo
+* Retries
 
-Garantir qualidade da aplicação ZombiePlus
+---
 
-Automatizar regressões
+## 🧪 Cenários Automatizados
 
-Validar fluxos críticos
+### 🔐 Login
 
-Servir como base para expansão futura de testes
+* Login com sucesso
+* Login inválido
+* Validação de mensagens de erro
+* Redirecionamento após autenticação
 
-Aplicar boas práticas com Playwright (Page Object Model)
+### 🎬 Cadastro de Filmes
 
-📌 Observações Importantes
+* Cadastro com dados válidos
+* Validação de campos obrigatórios
+* Persistência na listagem
 
-A aplicação ZombiePlus (API + Web) deve estar rodando antes da execução dos testes.
+### 📋 Cadastro de Leads
 
-O banco PostgreSQL deve estar ativo.
+* Criação de novo Lead
+* Validações obrigatórias
+* Fluxo completo via UI
 
-As credenciais utilizadas nos testes devem existir no ambiente.
+---
 
-O projeto pode ser facilmente adaptado para rodar em CI/CD (GitHub Actions, GitLab CI, etc).
+## 🔄 Integração Contínua (Sugestão)
 
-👨‍💻 Autor
+Este projeto pode ser facilmente integrado com:
 
-Projeto de automação desenvolvido para fins de testes e validação da aplicação ZombiePlus.
+* GitHub Actions
+* GitLab CI
+* Azure DevOps
+* Jenkins
+
+Exemplo de execução em pipeline:
+
+```bash
+npm ci
+npx playwright install --with-deps
+npx playwright test
+```
+
+---
+
+## 🎯 Objetivo
+
+* Garantir qualidade da aplicação ZombiePlus
+* Automatizar regressões
+* Validar fluxos críticos
+* Demonstrar boas práticas com Playwright
+* Servir como base para evolução de testes automatizados
+
+---
+
+## 👨‍💻 Autor
+
+Projeto desenvolvido para fins de validação e automação da aplicação **ZombiePlus**.
+
+---
+
