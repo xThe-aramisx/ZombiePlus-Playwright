@@ -1,12 +1,13 @@
-const {test} = require('../support') 
+const {test} = require('../support/') 
 
 const data = require('../support/fixtures/movies.json')
 
 const { executeSQL } = require('../support/database')
 
-const { LoginPage } = require('../pages/LoginPages');
+const { LoginPage } = require('../pages/LoginPages')
 const {Toast} = require('../pages/Components')
-const { MoviesPage } = require('../pages/MoviesPage');
+
+const { MoviesPage } = require('../pages/MoviesPage')
 
 let loginPage
 let toast
