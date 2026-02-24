@@ -10,10 +10,10 @@ const test = base.extend({
         
            const context = page
 
-           context['landing'] = new LandingPage(page)
-           context['login'] = new LoginPage(page)
+           context['leads'] = new Leads(page)
+           context['login'] = new Login(page)
            context['toast'] = new Toast(page)
-           context['movies'] = new MoviesPage(page)
+           context['movies'] = new Movies(page)
 
         await use(context)    
     }
