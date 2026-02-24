@@ -1,8 +1,8 @@
 const {test: base, expect} = require ('@playwright/test')
 
-const { LandingPage } = require('../actions/Leads')
-const { LoginPage } = require('../actions/Login')
-const { MoviesPage } = require('../actions/Movies')
+const { Leads } = require('../actions/Leads')
+const { Login } = require('../actions/Login')
+const { Movies } = require('../actions/Movies')
 const {Toast} = require('../actions/Components')
 
 const test = base.extend({
