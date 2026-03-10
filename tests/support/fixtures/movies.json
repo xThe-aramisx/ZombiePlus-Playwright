@@ -7,13 +7,13 @@
     "featured": false,
     "cover": "cover/mortos-vivos.jpg"
   },
-  "o_despertar_dos_mortos": {
-    "title": "O Despertar dos Mortos",
+  "duplicate": {
+    "title": "Resident Evil: O Hóspedeiro",
     "overview": "Sobreviventes de um apocalipse zumbi se escondem em um shopping center enquanto enfrentam hordas de mortos-vivos.",
-    "company": "united_film_distribution_company",
-    "release_year": 1978,
+    "company": "Sony Pictures",
+    "release_year": 1971,
     "featured": false,
-    "cover": "images/o_despertar_dos_mortos.png"
+    "cover": "cover/resident-evil.jpg"
   },
   "o_dia_dos_mortos": {
     "title": "O Dia dos Mortos",

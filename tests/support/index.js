@@ -5,6 +5,8 @@ const { Login } = require('./actions/Login')
 const { Movies } = require('./actions/Movies')
 const {Toast} = require('./actions/Components')
 
+const { Api } = require('./api/')
+
 const test = base.extend({
     page: async ({ page }, use) => {
         
@@ -16,7 +18,16 @@ const test = base.extend({
            context['movies'] = new Movies(page)
 
         await use(context)    
-    }
+    },
+    request: async ({ request}, use) => {
+        
+        const context = request
+        context['api'] = new Api(request) 
+
+        await context['api'].setToken() // seta o token para ser usado em todas as requisições, evitando a necessidade de chamar o método em cada teste
+        
+        await use(context)
+    },
 })
 
 export {test, expect}
