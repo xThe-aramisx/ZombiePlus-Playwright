@@ -1,7 +1,7 @@
 
 # Playwright
 *.html 
-playwright.env.json
+*.env.json
 .vscode
 node_modules/
 /test-results/
