@@ -15,13 +15,13 @@
     "featured": false,
     "cover": "cover/resident-evil.jpg"
   },
-  "o_dia_dos_mortos": {
+  "to_remove": {
     "title": "O Dia dos Mortos",
     "overview": "Cientistas e militares vivem em um bunker tentando entender e controlar os zumbis após o colapso da sociedade.",
     "company": "united_film_distribution_company",
     "release_year": 1985,
     "featured": false,
-    "cover": "images/o_dia_dos_mortos.png"
+    "cover": "cover/mostor-vivos-2.jpg"
   },
   "exterminio": {
     "title": "Exterminio",
