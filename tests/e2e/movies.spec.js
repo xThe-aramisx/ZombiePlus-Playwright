@@ -16,7 +16,7 @@ test("Deve poder cadastrar um novo filme", async ({ page }) => {
   );
 });
 
-test("Nao poder cadastrar quando o titulo ja existe", async ({
+test("Nao poder cadastrar quando o titulo é duplicado", async ({
   page,
   request,
 }) => {
@@ -45,18 +45,20 @@ test("Deve validar campos obrigatórios", async ({ page }) => {
   ])
 });
 
-test("Deve poder remover um filme", async(page, request) => {
+test("Deve poder remover um filme", async({page, request}) => {
     const movie = data.to_remove
     await executeSQL(`DELETE FROM movies WHERE title = '${movie.title}'`) // limpeza do banco para evitar conflitos com testes anteriores
     await request.api.postMovie(movie)
 
     await page.login.do("admin@zombieplus.com", "pwd123", "Admin")
-    await page.click('.remove-item')
-    await page.click('.confirm-removal')
-
-
-
-    await page.popup.haveText('O filme removido com sucesso.')
-
-
+    await page.movies.remove(movie.title)
+    await page.popup.haveText('Filme removido com sucesso.')
 });
+test('Deve pesquisar os filmes por zombie', async ({page, request})=> {
+    const movies = data.search
+
+    movies.data.forEach(async (m) => {
+        await request.api.postMovie(m)
+    })
+    await page.login.do("admin@zombieplus.com", "pwd123", "Admin");
+})

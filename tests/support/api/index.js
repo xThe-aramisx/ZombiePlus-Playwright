@@ -18,7 +18,7 @@ const { expect } = require ('@playwright/test')
             //console.log(await response.text())
             const body = JSON.parse(await response.text())
             this.token = 'Bearer ' + body.token
-            console.log(this.token)
+            //console.log(this.token)
     }
     async getCompanyIdByName(companyName) {
             const response = await this.request.get('http://localhost:3333/companies', {
